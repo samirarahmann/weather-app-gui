@@ -1,4 +1,14 @@
+<<<<<<< HEAD
 import './App.css';
+=======
+import React, { useState,useEffect } from 'react';
+import './index.css';
+import axios from "axios";
+const liveweather = {
+  key: "4ac7d2859ab7a6c64fc946c11274149f",
+  base: "https://api.openweathermap.org/data/2.5/"
+}
+>>>>>>> aabf4b98194cef36de503f07c53927de26a99df7
 
 function App() {
   const [query, queryset] = useState('');
