@@ -9,7 +9,7 @@ body {
 }
 
 .app {
-  background-image: url("./design/background.jpg");
+  background-image: url("./design/images.jpg");
   background-size: cover;
   /* background-position: top; */
   transition: 0.8 ease;
