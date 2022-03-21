@@ -56,19 +56,46 @@ function App() {
   }
   const time_date = (d) => {
     
-    
     let number = d.getDate();
     let month = d.getMonth();
     let period  = d.getFullYear();
 
     return `${number} - ${month} - ${period}`
   }
-  return (   
+
+
+  return (  
+     
       <div className="app">
       <main>
         <div main_screen_container="home_page" >
+
+        <div className='CurrentLocation'>
+          <div><h1>{cityName}</h1></div>
+        </div>
+
+        {/* <div className='CurrentWeather'>
+          <div>Temp</div> <br/>
+            <div>{temperature}ºC</div> <br/>
+          <div>Current Weather</div> <br/>
+            <div>{weather}ºC</div>
+        </div> */}
+
+        {/* <div className='windSpeed'>
+          <div><p>wind speed</p></div>
+        </div>
+
+        <div className="app_container" id="main_screen">
+        <div className='CurrentWeather'>
+          <div>Temp</div> <br/>
+            <div>{temperature}ºC</div> <br/>
+          <div>Current Weather</div> <br/>
+            <div>{weather}ºC</div>
+        </div>
+      </div> */}
+
            
-          <div className="app__container" id="main_screen">
+          <div className="app_container" id="main_screen">
             <div className="Currentinfo" >
         <div>Current Location</div>
         <div>{cityName}</div>
@@ -86,6 +113,24 @@ function App() {
         <div className="date1">{time_date(new Date())}</div>
         </div>
       </div>
+
+      {/* <div className="CurrentLocation" id="CurrentLocation">
+              <div>Current Location</div>
+                <div>{cityName}</div>
+            </div>
+            <div className='CurrentTemperature'id="CurrentTemperature">
+              <div>Current Temperature</div>
+                <div>{temperature}ºC</div>
+            </div>
+            <div className='CurrentWeather' id="CurrentWeather">
+              <div>Current Weather</div>
+                <div>{weather}</div>
+            </div>
+            <div className='CurrentDate' id="CurrentDate">
+              <div>Current Date</div>
+                <div className="date1">{time_date(new Date())}</div>
+            </div> */}
+      
     
         </div>
         <div className="search_react">
@@ -98,6 +143,7 @@ function App() {
             onKeyPress={search_the_area}
           />
         </div>
+
         {(typeof weather1.main != "undefined") ? (
         <div>
         <div className="location_react">
