@@ -36,7 +36,7 @@ function App() {
       setCityName(res.data.name);
       setWeather(res.data.weather[0].main);
       setHumidity(res.data.main.humidity);
-      setVisibility(res.data.wind.speed);
+      setWindSpeed(res.data.wind.speed);
       setVisibility(res.data.visibility);
       console.log(res.data);
     } catch (err) {
