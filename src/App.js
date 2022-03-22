@@ -76,10 +76,10 @@ function App() {
       <div className="app">
       <main>
         <div main_screen_container="home_page" >
-
+        <div class = "container">
         <div className='CurrentLocation'>
           <div><h1>{cityName}</h1></div>
-        </div>
+        </div></div>
 
         {/* <div className='CurrentWeather'>
           <div>Temp</div> <br/>
@@ -102,36 +102,83 @@ function App() {
       </div> */}
 
            
-          <div className="app_container" id="main_screen">
-            <div className="Currentinfo" >
-        <div>Current Location</div>
-        <div>{cityName}</div>
-            </div>
-        <div className="Currentinfo" >
-        <div>Temperature</div>
-            <div>{temperature}ºC</div>
-            </div>
-        <div className="Currentinfo" >
-        <div>Weather</div>
+      
+        
+          <div class = "grid container"> 
+            <div class = "item"> 
+              
+              <h4>
+                Current Location
+                
+              </h4>
+
+              <div> {cityName} </div>
+
+              
+              
+            
+            
+              </div>
+        
+       
+       
+        <div class ="grid container" >
+          <div class = "item"> 
+            <h4>
+              Temperature
+            </h4>
+          <div>{temperature}ºC</div>
+
+          
+          </div>
+          </div>
+          
+        
+        
+        
+          <div class = "grid container"> 
+            <div class = "item">
+        <h4>Weather</h4>
             <div>{weather}</div>
             </div>
+            </div>
         
-        <div className="Currentinfo" >
-        <div>Humidity</div>
+        
+        
+        
+            <div class = "grid container"> 
+            <div class = "item">
+        <h4>Humidity</h4>
             <div>{humidity}</div>
             </div>
-        <div className="Currentinfo" >
-        <div>Wind Speed</div>
+            </div>
+        
+        
+        
+            <div class = "grid container"> 
+            <div class = "item"> 
+        <h4>Wind Speed</h4>
             <div>{windspeed}</div>
             </div>
-        <div className="Currentinfo" >
-        <div>Visibility</div>
+            </div>
+            
+        
+        
+            <div class = "grid container"> 
+            <div class = "item"> 
+        <h4>Visibility</h4>
             <div>{visibility}</div>
             </div>
-        <div className="Currentinfo" >
-          <div>Time</div>
+            </div>
+        
+        
+        
+            <div class = "grid container"> 
+            <div class = "item"> 
+          <h4>Time</h4>
         <div className="date1">{time_date(new Date())}</div>
         </div>
+      </div>
       </div>
 
       {/* <div className="CurrentLocation" id="CurrentLocation">
@@ -153,8 +200,12 @@ function App() {
       
     
         </div>
+
+       
+       
         <div className="search_react">
           <input 
+            
             type="text"
             className="search_bar"
             placeholder="Your training location?"
@@ -163,6 +214,7 @@ function App() {
             onKeyPress={search_the_area}
           />
         </div>
+        
 
         {(typeof weather1.main != "undefined") ? (
         <div>
