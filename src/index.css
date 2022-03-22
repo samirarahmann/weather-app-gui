@@ -2,10 +2,12 @@
   margin: 0;
   padding: 20;
   box-sizing: content-box;
+  
 }
 
 body {
   font-family: "Montserrat", sans-serif;
+  
 }
 
 .app {
@@ -13,7 +15,23 @@ body {
   background-size: cover;
   /* background-position: top; */
   transition: 0.8 ease;
+  
 }
+
+.app-header{
+  background-color: white;
+  box-shadow: 3px 3px 10px #888;
+
+}
+
+.app header .container{
+  display: flex;
+  flex-direction: column;
+
+
+}
+
+
 .app.warm {
   background-image: url("./design/warm.jpeg");
 }
@@ -27,6 +45,8 @@ main {
   text-align: center;
   width: 70px;
   margin: 0;
+  text-align: center;
+  
 }
 
 .search_react .search_bar {
@@ -41,6 +61,7 @@ main {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-variant: small-caps;
   transition: 0.7s ease;
+  
 }
 
 .location_react .location {
@@ -95,7 +116,14 @@ main {
 .home_page {
   display: flex;
   justify-content: space-between;
+  text-align: center;
   /* flex-wrap: wrap; */
+}
+
+.p1 {
+  position: absolute;
+  top: 50px;
+  border: 3px solid green;
 }
 
 /* .CurrentTemperature .CurrentWeather .CurrentDate{
@@ -165,5 +193,62 @@ main {
   border-radius: 25px;
   width: 200px;
   height: 150px;
+  
 }
 
+:root {
+  --primary-color: #cc0000;
+  --secondary-color: #7c0000;
+
+
+}
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  
+}
+
+.container {
+
+  width: 90%
+  
+  
+
+  
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  text-align: center;
+  
+}
+
+.grid .item {
+  display: flex;
+  flex-direction:column;
+  border: 1px #ccc solid;
+  padding: 10px;
+  box-shadow: 1px 1px 2px #ccc;
+  background-color: lightblue;
+  
+  
+}
+
+.grid .item p {
+  font-size: 14px;
+  color: var(--secondary-color);
+  font-weight: bold;
+  margin-bottom: 20px;
+  
+}
+
+.grid .item img {
+  width: 30 px;
+  align-self: flex-end;
+  
+}
