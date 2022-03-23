@@ -19,6 +19,7 @@ class App extends React.Component
     cityinfo:
     {
 
+<<<<<<< HEAD
       city: '',
       country:''
     },
@@ -35,6 +36,49 @@ class App extends React.Component
       dailyHumid : [],
       dailyWind : [],
       dailyIcon : []
+=======
+
+  const savePositionToState = (position) => {
+    setLatitude(position.coords.latitude);
+    setLongitude(position.coords.longitude);
+  };
+
+  const fetchWeather = async () => {
+    try {
+      await window.navigator.geolocation.getCurrentPosition(
+        savePositionToState
+      );
+      const res = await axios.get(
+        `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=60d505bb48f9c02e8d1f29a621cd125f&units=metric`
+      );
+      setTemperature(res.data.main.temp);
+      setCityName(res.data.name);
+      setWeather(res.data.weather[0].main);
+      setHumidity(res.data.main.humidity);
+      setWindSpeed(res.data.wind.speed);
+      setVisibility(res.data.visibility);
+      console.log(res.data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  useEffect(() => {
+    fetchWeather();
+  }, [latitude, longitude]);
+
+
+
+  const search_the_area = press => {
+    if (press.key === "Enter") {
+      fetch(`${liveweather.base}weather?q=${query}&units=metric&APPID=${liveweather.key}`)
+        .then(res => res.json())
+        .then(output => {
+          anyweather(output);
+          queryset('Location you searched....');
+          console.log(output);
+        });
+>>>>>>> 6b1ba9e02662587cc30526073a3d533804973cf0
     }
   }
 
@@ -101,6 +145,7 @@ class App extends React.Component
     let ftemp = (this.state.info.currTemp - 273.15) * 9/5 + 32;
     ftemp = Math.round(ftemp);
 
+<<<<<<< HEAD
     console.log(this.state.info.dailyday)
     console.log(this.state.info.dailyIcon);
     console.log(this.state.info.dailyHumid);
@@ -115,11 +160,23 @@ class App extends React.Component
     let i = d.getDay(); //1
     let dailyday = [];
     let j = 0;
+=======
+  return (  
+     
+      <div className="app">
+      <main>
+        <div main_screen_container="home_page" >
+        <div class = "container">
+        <div className='CurrentLocation'>
+          <div><h1>{cityName}</h1></div>
+        </div></div>
+>>>>>>> 6b1ba9e02662587cc30526073a3d533804973cf0
 
     while(j < 7)
     {
       dailyday[j] = daysWeek[i]; //mon, tue, wed, thur, fri, sat
 
+<<<<<<< HEAD
       if(i == 6)
       {
         i = 0;
@@ -135,6 +192,137 @@ class App extends React.Component
     return (
       <div class = "week">
         <Quote />
+=======
+        {/* <div className='windSpeed'>
+          <div><p>wind speed</p></div>
+        </div>
+
+        <div className="app_container" id="main_screen">
+        <div className='CurrentWeather'>
+          <div>Temp</div> <br/>
+            <div>{temperature}ºC</div> <br/>
+          <div>Current Weather</div> <br/>
+            <div>{weather}ºC</div>
+        </div>
+      </div> */}
+
+           
+      
+        
+          <div class = "grid container"> 
+            <div class = "item"> 
+              
+              <h4>
+                Current Location
+                
+              </h4>
+
+              <div> {cityName} </div>
+
+              
+              
+            
+            
+              </div>
+        
+       
+       
+        <div class ="grid container" >
+          <div class = "item"> 
+            <h4>
+              Temperature
+            </h4>
+          <div>{temperature}ºC</div>
+
+          
+          </div>
+          </div>
+          
+        
+        
+        
+          <div class = "grid container"> 
+            <div class = "item">
+        <h4>Weather</h4>
+            <div>{weather}</div>
+            </div>
+            </div>
+        
+        
+        
+        
+            <div class = "grid container"> 
+            <div class = "item">
+        <h4>Humidity</h4>
+            <div>{humidity}</div>
+            </div>
+            </div>
+        
+        
+        
+            <div class = "grid container"> 
+            <div class = "item"> 
+        <h4>Wind Speed</h4>
+            <div>{windspeed}</div>
+            </div>
+            </div>
+            
+        
+        
+            <div class = "grid container"> 
+            <div class = "item"> 
+        <h4>Visibility</h4>
+            <div>{visibility}</div>
+            </div>
+            </div>
+        
+        
+        
+            <div class = "grid container"> 
+            <div class = "item"> 
+          <h4>Time</h4>
+        <div className="date1">{time_date(new Date())}</div>
+        </div>
+      </div>
+      </div>
+
+      {/* <div className="CurrentLocation" id="CurrentLocation">
+              <div>Current Location</div>
+                <div>{cityName}</div>
+            </div>
+            <div className='CurrentTemperature'id="CurrentTemperature">
+              <div>Current Temperature</div>
+                <div>{temperature}ºC</div>
+            </div>
+            <div className='CurrentWeather' id="CurrentWeather">
+              <div>Current Weather</div>
+                <div>{weather}</div>
+            </div>
+            <div className='CurrentDate' id="CurrentDate">
+              <div>Current Date</div>
+                <div className="date1">{time_date(new Date())}</div>
+            </div> */}
+      
+    
+        </div>
+
+       
+       
+        <div className="search_react">
+          <input 
+            
+            type="text"
+            className="search_bar"
+            placeholder="Your training location?"
+            onChange={e => queryset(e.target.value)}
+            value={query}
+            onKeyPress={search_the_area}
+          />
+        </div>
+        
+
+        {(typeof weather1.main != "undefined") ? (
+>>>>>>> 6b1ba9e02662587cc30526073a3d533804973cf0
         <div>
           <p id = "city">{this.state.cityinfo.city}</p>
           <p id = "country">{this.state.cityinfo.country}</p>
