@@ -28,6 +28,7 @@
   color: #61dafb;
 }
 
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -35,6 +36,24 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.phone-container {
+  background-color: grey;
+  height: 100%;
+  width: 100%;
+
+  /*centre phone*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.phone{
+  width: 506.25px;
+  height: 900px;
+  /* scrollable screen*/
+  overflow-y: scroll;
 }
 
 *{
@@ -59,8 +78,6 @@
   font-size: 2em;
   margin-bottom: 1em;
 }
-
-
 
 .week
 {
@@ -118,7 +135,7 @@ tr#Day
   margin-bottom: 2rem;
 }
 
-th#sub
+th#sub, .dropdown>#sub
 {
   padding-bottom: 1rem;
 }
@@ -132,4 +149,23 @@ th#sub
 #detail
 {
   color:darkblue;
+}
+
+.button {
+  border: 0ch;
+  color: black;
+  cursor: pointer;
+  font-size: 40px;
+  float: left;
+}
+
+.dropdown{
+  text-align: center;
+  color: #61dafb;
+  align-items: center;
+  justify-content: center;
+}
+
+.p1 {
+  font-family: "Times New Roman", Times, serif;
 }

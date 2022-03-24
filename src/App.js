@@ -35,7 +35,16 @@ class App extends React.Component
       dailyHumid : [],
       dailyWind : [],
       dailyIcon : []
-    }
+    },
+    open: false
+  };
+
+  handleButtonClick = () =>{
+    this.setState((state) =>{
+      return{
+        open: !state.open,
+      };
+    });
   }
 
   componentDidMount()
@@ -133,90 +142,103 @@ class App extends React.Component
     }
     
     return (
-      <div class = "week">
-        <Quote />
-        <div>
-          <p id = "city">{this.state.cityinfo.city}</p>
-          <p id = "country">{this.state.cityinfo.country}</p>
-          <p id = "Day">{dailyday[0]},  {date}.{m}.{y}</p>
+      <div className='phone-container'>
+        <div className='phone'>
+          <div class = "week">
+          <Quote />
+          <div>
+            <p id = "city">{this.state.cityinfo.city}</p>
+            <p id = "country">{this.state.cityinfo.country}</p>
+            <p id = "Day">{dailyday[0]},  {date}.{m}.{y}</p>
+          </div>
+
+          <table class = "first">
+            <tr>
+              <th id = "currIcon"><img id = "currIcon" src={this.state.info.currIcon} alt="curImage"></img></th>
+              <th>
+                <tr id = "temp">{cTemp} °C</tr>
+                <tr id = "temp">{ftemp} °F</tr>
+                <tr id = "detail">{this.state.info.currDesc}</tr>
+                <tr id = "det">Visibility : {this.state.info.currVisibility}</tr>
+                <tr id = "det">Wind : {this.state.info.currWind}</tr>
+                <tr id = "det">Humidity : {this.state.info.currHumid}</tr>
+              </th>
+            </tr>
+          </table>
+
+          <div class='p1'> <strong><p> Hourly Forecast </p></strong></div>
+
+          <p>Weekly Forecast</p>
+
+          <table class = "rest">
+            <button type="button" class="button" onClick={this.handleButtonClick}>
+              ▼
+            </button>
+            <tr>
+              <th id = "currIcon"><img id = "currIcon" src={this.state.info.dailyIcon[1]} alt="curImage"></img></th>
+              <th id = "sub">
+                <tr id = "Day">{dailyday[1]}</tr>
+                <span id = "temp">{this.state.info.dailyTemp[1]} °C</span>
+                <tr id = "det">Wind : {this.state.info.dailyWind[1]}</tr>
+                <tr id = "det">Humidity : {this.state.info.dailyHumid[1]}</tr>
+              </th>
+            </tr>
+            
+            {this.state.open && (
+              <div class ="dropdown">
+              <tr>
+                  <th id = "currIcon"><img id = "currIcon" src={this.state.info.dailyIcon[2]} alt="curImage"></img></th>
+                  <th id = "sub">
+                    <tr id = "Day">{dailyday[2]}</tr>
+                    <span id = "temp">{this.state.info.dailyTemp[2]} °C</span>
+                    <tr id = "det">Wind : {this.state.info.dailyWind[2]}</tr>
+                    <tr id = "det">Humidity : {this.state.info.dailyHumid[2]}</tr>
+                  </th>
+                </tr>
+                <tr>
+                  <th id = "currIcon"><img id = "currIcon" src={this.state.info.dailyIcon[3]} alt="curImage"></img></th>
+                  <th id = "sub">
+                    <tr id = "Day">{dailyday[3]}</tr>
+                    <span id = "temp">{this.state.info.dailyTemp[3]} °C</span>
+                    <tr id = "det">Wind : {this.state.info.dailyWind[3]}</tr>
+                    <tr id = "det">Humidity : {this.state.info.dailyHumid[3]}</tr>
+                  </th>
+                </tr>
+                <tr>
+                  <th id = "currIcon"><img id = "currIcon" src={this.state.info.dailyIcon[4]} alt="curImage"></img></th>
+                  <th id = "sub">
+                    <tr id = "Day">{dailyday[4]}</tr>
+                    <span id = "temp">{this.state.info.dailyTemp[4]} °C</span>
+                    <tr id = "det">Wind : {this.state.info.dailyWind[4]}</tr>
+                    <tr id = "det">Humidity : {this.state.info.dailyHumid[4]}</tr>
+                  </th>
+                </tr>
+                <tr>
+                  <th id = "currIcon"><img id = "currIcon" src={this.state.info.dailyIcon[5]} alt="curImage"></img></th>
+                  <th id = "sub">
+                    <tr id = "Day">{dailyday[5]}</tr>
+                    <span id = "temp">{this.state.info.dailyTemp[5]} °C</span>
+                    <tr id = "det">Wind : {this.state.info.dailyWind[5]}</tr>
+                    <tr id = "det">Humidity : {this.state.info.dailyHumid[5]}</tr>
+                  </th>
+                </tr>
+                <tr>
+                  <th id = "currIcon"><img id = "currIcon" src={this.state.info.dailyIcon[6]} alt="curImage"></img></th>
+                  <th id = "sub">
+                    <tr id = "Day">{dailyday[6]}</tr>
+                    <span id = "temp">{this.state.info.dailyTemp[6]} °C</span>
+                    <tr id = "det">Wind : {this.state.info.dailyWind[6]}</tr>
+                    <tr id = "det">Humidity : {this.state.info.dailyHumid[6]}</tr>
+                  </th>
+                </tr>
+              </div>
+            )}
+          </table>
+          <div><TrainingLocationSearch /></div>
         </div>
-
-        <table class = "first">
-          <tr>
-            <th id = "currIcon"><img id = "currIcon" src={this.state.info.currIcon} alt="curImage"></img></th>
-            <th>
-              <tr id = "temp">{cTemp} °C</tr>
-              <tr id = "temp">{ftemp} °F</tr>
-              <tr id = "detail">{this.state.info.currDesc}</tr>
-              <tr id = "det">Visibility : {this.state.info.currVisibility}</tr>
-              <tr id = "det">Wind : {this.state.info.currWind}</tr>
-              <tr id = "det">Humidity : {this.state.info.currHumid}</tr>
-            </th>
-          </tr>
-        </table>
-
-        <p>Hourly Forecast</p>
-
-        <p>Weekly Forecast</p>
-
-        <table class = "rest">
-          <tr>
-            <th id = "currIcon"><img id = "currIcon" src={this.state.info.dailyIcon[1]} alt="curImage"></img></th>
-            <th id = "sub">
-              <tr id = "Day">{dailyday[1]}</tr>
-              <span id = "temp">{this.state.info.dailyTemp[1]} °C</span>
-              <tr id = "det">Wind : {this.state.info.dailyWind[1]}</tr>
-              <tr id = "det">Humidity : {this.state.info.dailyHumid[1]}</tr>
-            </th>
-          </tr>
-          <tr>
-            <th id = "currIcon"><img id = "currIcon" src={this.state.info.dailyIcon[2]} alt="curImage"></img></th>
-            <th id = "sub">
-              <tr id = "Day">{dailyday[2]}</tr>
-              <span id = "temp">{this.state.info.dailyTemp[2]} °C</span>
-              <tr id = "det">Wind : {this.state.info.dailyWind[2]}</tr>
-              <tr id = "det">Humidity : {this.state.info.dailyHumid[2]}</tr>
-            </th>
-          </tr>
-          <tr>
-            <th id = "currIcon"><img id = "currIcon" src={this.state.info.dailyIcon[3]} alt="curImage"></img></th>
-            <th id = "sub">
-              <tr id = "Day">{dailyday[3]}</tr>
-              <span id = "temp">{this.state.info.dailyTemp[3]} °C</span>
-              <tr id = "det">Wind : {this.state.info.dailyWind[3]}</tr>
-              <tr id = "det">Humidity : {this.state.info.dailyHumid[3]}</tr>
-            </th>
-          </tr>
-          <tr>
-            <th id = "currIcon"><img id = "currIcon" src={this.state.info.dailyIcon[4]} alt="curImage"></img></th>
-            <th id = "sub">
-              <tr id = "Day">{dailyday[4]}</tr>
-              <span id = "temp">{this.state.info.dailyTemp[4]} °C</span>
-              <tr id = "det">Wind : {this.state.info.dailyWind[4]}</tr>
-              <tr id = "det">Humidity : {this.state.info.dailyHumid[4]}</tr>
-            </th>
-          </tr>
-          <tr>
-            <th id = "currIcon"><img id = "currIcon" src={this.state.info.dailyIcon[5]} alt="curImage"></img></th>
-            <th id = "sub">
-              <tr id = "Day">{dailyday[5]}</tr>
-              <span id = "temp">{this.state.info.dailyTemp[5]} °C</span>
-              <tr id = "det">Wind : {this.state.info.dailyWind[5]}</tr>
-              <tr id = "det">Humidity : {this.state.info.dailyHumid[5]}</tr>
-            </th>
-          </tr>
-          <tr>
-            <th id = "currIcon"><img id = "currIcon" src={this.state.info.dailyIcon[6]} alt="curImage"></img></th>
-            <th id = "sub">
-              <tr id = "Day">{dailyday[6]}</tr>
-              <span id = "temp">{this.state.info.dailyTemp[6]} °C</span>
-              <tr id = "det">Wind : {this.state.info.dailyWind[6]}</tr>
-              <tr id = "det">Humidity : {this.state.info.dailyHumid[6]}</tr>
-            </th>
-          </tr>
-        </table>
-        <div><TrainingLocationSearch /></div>
+        </div>
       </div>
+
     );
   }
 }
